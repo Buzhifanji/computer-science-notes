@@ -41,8 +41,7 @@ public class ArrayList {
 	 * @param element
 	 */
 	public void add(int element) {
-		elements[size] = element;
-		size++;
+		add(size, element);
 	}
 	/**
 	 * 在index位置插入一个元素
@@ -50,6 +49,7 @@ public class ArrayList {
 	 * @param element
 	 */
 	public void add(int index, int element) {
+		rangeCheckForAdd(index);
 		for(int i = size -1; i >= index; i--) {
 			elements[i + 1]= elements[i];
 		}
@@ -64,9 +64,7 @@ public class ArrayList {
 	 * @return
 	 */
 	public int get(int index) {
-		if (index < 0 || index >= size) {
-			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-		}
+		rangeCheck(index);
 		return elements[index];
 	}
 
@@ -78,9 +76,7 @@ public class ArrayList {
 	 * @return 原来的元素ֵ
 	 */
 	public int set(int index, int element) {
-		if (index < 0 || index >= size) {
-			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-		}
+		rangeCheck(index);
 		int old = elements[index];
 		elements[index] = element;
 		return old;
@@ -92,9 +88,7 @@ public class ArrayList {
 	 * @return
 	 */
 	public int remove(int index) {
-		if (index < 0 || index >= size) {
-			throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-		}
+		rangeCheck(index);
 		int old = elements[index];
 		for(int i = index; i < size; i++) {
 			elements[i] = elements[i+1];
@@ -134,6 +128,22 @@ public class ArrayList {
 		}
 		string.append("]");
 		return string.toString();
+	}
+	
+	private void outOfBound(int index) {
+		throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+	}
+	
+	private void rangeCheck(int index) {
+		if (index < 0 || index >= size) {
+			outOfBound(index);
+		}
+	}
+	
+	private void rangeCheckForAdd(int index) {
+		if (index < 0 || index > size) {
+			outOfBound(index);
+		}
 	}
 	
 	/*

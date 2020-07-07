@@ -9,8 +9,11 @@ public class Main {
 		list.add(44);
 		list.add(55);
 		
+		list.set(3, 88);
+		
 //		list.add(1, 100);
-		list.remove(5);
+//		list.add(1, 110);
+//		list.remove(list.size() -1);
 		System.out.println(list);
 	}
 }
