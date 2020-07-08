@@ -1,15 +1,15 @@
 package com.demo;
 
 // 动态数组
-public class ArrayList {
+public class ArrayList<E> {
 	private int size;
-	private int[] elements;
+	private E[] elements;
 	private static final int DEFAULT_CAPATICY = 10;
 	private static final int ELEMENT_NOT_FOUND = -1;
 
 	public ArrayList(int capaticy) {
 		capaticy = (capaticy < DEFAULT_CAPATICY) ? DEFAULT_CAPATICY : capaticy;
-		elements = new int[capaticy];
+		elements = new E[capaticy];
 	}
 
 	// 无参的构造函数
@@ -32,7 +32,7 @@ public class ArrayList {
 	}
 
 	
-	public boolean contains(int element) {
+	public boolean contains(E element) {
 		return indexOf(element) != ELEMENT_NOT_FOUND;
 	  
 	}
@@ -41,7 +41,7 @@ public class ArrayList {
 	 * 添加元素到尾部
 	 * @param element
 	 */
-	public void add(int element) {
+	public void add(E element) {
 		add(size, element);
 	}
 	/**
@@ -49,8 +49,9 @@ public class ArrayList {
 	 * @param index
 	 * @param element
 	 */
-	public void add(int index, int element) {
+	public void add(int index, E element) {
 		rangeCheckForAdd(index);
+		ensureCapacity(size + 1);
 		for(int i = size -1; i >= index; i--) {
 			elements[i + 1]= elements[i];
 		}
@@ -76,9 +77,9 @@ public class ArrayList {
 	 * @param element
 	 * @return 原来的元素ֵ
 	 */
-	public int set(int index, int element) {
+	public E set(int index, E element) {
 		rangeCheck(index);
-		int old = elements[index];
+		E old = elements[index];
 		elements[index] = element;
 		return old;
 	}
@@ -104,7 +105,7 @@ public class ArrayList {
 	 * @param element
 	 * @return
 	 */
-	public int indexOf(int element) {
+	public int indexOf(E element) {
 		for (int i = 0; i < size; i++) {
 			if (elements[i] == element) {
 				return i;
@@ -115,7 +116,7 @@ public class ArrayList {
 
 	@Override
 	public String toString() {
-		// size = 3, [10, 9, 8]
+		//exemple: size = 3, [10, 9, 8]
 		StringBuilder string = new StringBuilder();
 		string.append("size = ").append(size).append(": [");
 		for(int i = 0; i < size; i++) {
@@ -129,6 +130,23 @@ public class ArrayList {
 		}
 		string.append("]");
 		return string.toString();
+	}
+	/**
+	 * 保证要有capacity的容量
+	 * @param capacity
+	 */
+	private void ensureCapacity(int capacity) {
+		int oldCapacity = elements.length;
+		if(oldCapacity >= capacity) return;
+		
+		// 扩容1.5倍， 不直接乘于1.5 是为了 不会浮点失真
+		int newCapacity = oldCapacity + (oldCapacity >> 1);
+		E[] newELements = new E[newCapacity];
+		for(int i = 0; i < size; i++) {
+			newELements[i] = elements[i];
+		}
+		elements = newELements;
+		System.out.println(oldCapacity + "扩容为："  + newCapacity);
 	}
 	
 	private void outOfBound(int index) {
@@ -146,16 +164,5 @@ public class ArrayList {
 			outOfBound(index);
 		}
 	}
-	
-	/*
-	 * 
-	 * public void add(int index, int element) {
-	 * 
-	 * }
-	 * 
-	 * public remove() {
-	 * 
-	 * }
-	 * 
-	 */
+
 }

@@ -2,6 +2,11 @@ package com.demo;
 
 public class Main {
 	public static void main(String[] args) {
+		ComplexityTest();
+	}
+
+	/* 动态数组 */
+	public static void ComplexityTest() {
 		ArrayList list = new ArrayList();
 		list.add(11);
 		list.add(22);
@@ -9,11 +14,16 @@ public class Main {
 		list.add(44);
 		list.add(55);
 		
-		list.set(3, 88);
+		list.set(3,  80);
 		
-//		list.add(1, 100);
-//		list.add(1, 110);
-//		list.remove(list.size() -1);
+		for(int i = 0; i < 30; i++) {
+			list.add(i);
+		}
+		
+		// 断言测试
+		Assert.test(list.get(3) == 80);
+		// 打印测试
 		System.out.println(list);
+		
 	}
 }
