@@ -1,0 +1,10 @@
+<section>
+    <h2>常见的时间复杂度</h2>
+    <ul>
+        <li>常数阶O(1)</li>
+        <li>线性阶O(n)</li>
+        <li>平方阶O(n²)</li>
+        <li>对数阶O(logn)</li>
+        <li>线性对数阶O(nlogn)</li>
+    </ul>
+</section>

@@ -1,5 +1,6 @@
-package dynamic_array;
+package com.demo;
 
+// 动态数组
 public class ArrayList {
 	private int size;
 	private int[] elements;

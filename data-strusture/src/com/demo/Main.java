@@ -1,4 +1,4 @@
-package dynamic_array;
+package com.demo;
 
 public class Main {
 	public static void main(String[] args) {
