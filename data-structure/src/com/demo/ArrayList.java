@@ -9,7 +9,9 @@ public class ArrayList<E> {
 
 	public ArrayList(int capaticy) {
 		capaticy = (capaticy < DEFAULT_CAPATICY) ? DEFAULT_CAPATICY : capaticy;
-		elements = new E[capaticy];
+		// new 是向堆空间申请内存
+		// 
+		elements = (E[]) new Object[capaticy];
 	}
 
 	// 无参的构造函数
@@ -65,7 +67,7 @@ public class ArrayList<E> {
 	 * @param index
 	 * @return
 	 */
-	public int get(int index) {
+	public E get(int index) {
 		rangeCheck(index);
 		return elements[index];
 	}
@@ -89,9 +91,9 @@ public class ArrayList<E> {
 	 * @param index
 	 * @return
 	 */
-	public int remove(int index) {
+	public E remove(int index) {
 		rangeCheck(index);
-		int old = elements[index];
+		E old = elements[index];
 		for(int i = index; i < size; i++) {
 			elements[i] = elements[i+1];
 		}
@@ -141,7 +143,7 @@ public class ArrayList<E> {
 		
 		// 扩容1.5倍， 不直接乘于1.5 是为了 不会浮点失真
 		int newCapacity = oldCapacity + (oldCapacity >> 1);
-		E[] newELements = new E[newCapacity];
+		E[] newELements = (E[]) new Object[newCapacity];
 		for(int i = 0; i < size; i++) {
 			newELements[i] = elements[i];
 		}
