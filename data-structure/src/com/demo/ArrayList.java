@@ -7,10 +7,10 @@ public class ArrayList<E> {
 	private static final int DEFAULT_CAPATICY = 10;
 	private static final int ELEMENT_NOT_FOUND = -1;
 
+	@SuppressWarnings("unchecked")
 	public ArrayList(int capaticy) {
 		capaticy = (capaticy < DEFAULT_CAPATICY) ? DEFAULT_CAPATICY : capaticy;
 		// new 是向堆空间申请内存
-		// 
 		elements = (E[]) new Object[capaticy];
 	}
 
@@ -26,6 +26,9 @@ public class ArrayList<E> {
 
 	/* 清楚所有元素 */
 	public void clear() {
+		for(int i = 0; i < elements.length; i++) {
+			elements[i] = null;
+		}
 		size = 0;
 	}
 
@@ -36,7 +39,6 @@ public class ArrayList<E> {
 	
 	public boolean contains(E element) {
 		return indexOf(element) != ELEMENT_NOT_FOUND;
-	  
 	}
 	  
 	/**
@@ -108,9 +110,17 @@ public class ArrayList<E> {
 	 * @return
 	 */
 	public int indexOf(E element) {
-		for (int i = 0; i < size; i++) {
-			if (elements[i] == element) {
-				return i;
+		if(element == null) {
+			for(int i = 0; i < elements.length; i++) {
+				if(elements[i] == null) {
+					return i;
+				}
+			}
+		} else {
+			for (int i = 0; i < size; i++) {
+				if (elements[i] == element) {
+					return i;
+				}
 			}
 		}
 		return ELEMENT_NOT_FOUND;

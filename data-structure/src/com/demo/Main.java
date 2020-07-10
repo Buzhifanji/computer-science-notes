@@ -12,7 +12,9 @@ public class Main {
 		persons.add(new Person(10, "Jack"));
 		persons.add(new Person(20, "Rack"));
 		persons.add(new Person(30, "Rose"));
-		
+		persons.add(null);
+		int index = persons.indexOf(null);
+		System.out.print(index);
 		System.out.print(persons);
 		
 		ArrayList<Integer> list = new ArrayList<>();
@@ -22,8 +24,16 @@ public class Main {
 		list.add(14);
 		System.out.print(list);
 		
+		ArrayList<Object> people = new ArrayList<>();
+		people.add(1);
+		people.add("12");
+		people.add(new Person(20, "haha"));
+		System.out.print(people);
+		
 //		ArrayList list = new ArrayList();
 //		list.add(11);
+		
+		
 //		list.add(22);
 //		list.add(33);
 //		list.add(44);
