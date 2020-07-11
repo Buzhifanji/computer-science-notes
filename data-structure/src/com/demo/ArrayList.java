@@ -1,11 +1,9 @@
 package com.demo;
 
 // 动态数组
-public class ArrayList<E> {
-	private int size;
+public class ArrayList<E> extends AbstractList<E> {
 	private E[] elements;
 	private static final int DEFAULT_CAPATICY = 10;
-	private static final int ELEMENT_NOT_FOUND = -1;
 
 	@SuppressWarnings("unchecked")
 	public ArrayList(int capaticy) {
@@ -19,10 +17,6 @@ public class ArrayList<E> {
 		this(DEFAULT_CAPATICY);
 	}
 
-	/* 元素的数量 */
-	public int size() {
-		return size;
-	}
 
 	/* 清楚所有元素 */
 	public void clear() {
@@ -32,22 +26,6 @@ public class ArrayList<E> {
 		size = 0;
 	}
 
-	public boolean isEmpty() {
-		return size == 0;
-	}
-
-	
-	public boolean contains(E element) {
-		return indexOf(element) != ELEMENT_NOT_FOUND;
-	}
-	  
-	/**
-	 * 添加元素到尾部
-	 * @param element
-	 */
-	public void add(E element) {
-		add(size, element);
-	}
 	/**
 	 * 在index位置插入一个元素
 	 * @param index
@@ -82,6 +60,7 @@ public class ArrayList<E> {
 	 * @return 原来的元素ֵ
 	 */
 	public E set(int index, E element) {
+		System.out.print(size);
 		rangeCheck(index);
 		E old = elements[index];
 		elements[index] = element;
@@ -161,20 +140,4 @@ public class ArrayList<E> {
 		System.out.println(oldCapacity + "扩容为："  + newCapacity);
 	}
 	
-	private void outOfBound(int index) {
-		throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-	}
-	
-	private void rangeCheck(int index) {
-		if (index < 0 || index >= size) {
-			outOfBound(index);
-		}
-	}
-	
-	private void rangeCheckForAdd(int index) {
-		if (index < 0 || index > size) {
-			outOfBound(index);
-		}
-	}
-
 }

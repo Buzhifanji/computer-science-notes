@@ -2,29 +2,34 @@ package com.demo;
 
 public class Main {
 	public static void main(String[] args) {
-		ComplexityTest();
+//		ArrayListTest();
+		LinkedListTest();
 	}
 
-	/* 动态数组 */
-	public static void ComplexityTest() {
-		ArrayList<Person> persons = new ArrayList<>();
+	public static void LinkedListTest() {
+		List<Integer> list = new LinkedList<Integer>();
+		list.add(20);
+		list.add(0, 10);
+		list.add(30);
+		list.add(list.size(), 40);
 		
+		list.remove(1);
+		System.out.print(list);
+	}
+	
+	/* 动态数组 */
+	public static void ArrayListTest() {
+		List<Person> persons = new ArrayList<>();
 		persons.add(new Person(10, "Jack"));
 		persons.add(new Person(20, "Rack"));
 		persons.add(new Person(30, "Rose"));
+		persons.set(1, new Person(4, "lili"));
 		persons.add(null);
 		int index = persons.indexOf(null);
 		System.out.print(index);
 		System.out.print(persons);
 		
-		ArrayList<Integer> list = new ArrayList<>();
-		list.add(1);
-		list.add(2);
-		list.add(3);
-		list.add(14);
-		System.out.print(list);
-		
-		ArrayList<Object> people = new ArrayList<>();
+		List<Object> people = new ArrayList<>();
 		people.add(1);
 		people.add("12");
 		people.add(new Person(20, "haha"));
