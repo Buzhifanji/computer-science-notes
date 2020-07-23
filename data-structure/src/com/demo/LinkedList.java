@@ -110,4 +110,29 @@ public class LinkedList<E> extends AbstractList<E>  {
 		}
 		return node;
 	}
+	// 反转链接——递归
+	private Node<E> reverseListByRecursion(Node<E> head) {
+		if(head == null || head.next == null) {			// 链表为空直接返回，而head->next为空是链表只有一个元素
+			return head;
+		}
+		Node<E> newHead = reverseListByRecursion(head.next);	//一直循环到链尾 
+		head.next.next = head;							// 翻转链表的指向
+		head.next = null;								//记得赋值NULL，防止链表错乱
+		return newHead;								//新链表头永远指向的是原链表的链尾
+	}
+	
+	// 返回链表——非递归
+	private Node<E> reverseListByFor(Node<E> head) {
+		if(head == null || head.next == null) {
+			return head;
+		}
+		Node<E> newHead = null;
+		while(head != null) {				//一直迭代到链尾
+			Node<E> temp = head.next;		//暂存head下一个地址，防止变化指针指向后找不到后续的数
+			head.next = newHead;			 //head->next指向前一个空间
+			newHead = head;					//新链表的头移动到head，扩长一步链表
+			head = temp;					////head指向原始链表p指向的下一个空间
+		}
+		return newHead;
+	}
 }
