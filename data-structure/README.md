@@ -8,3 +8,49 @@
         <li>线性对数阶O(nlogn)</li>
     </ul>
 </section>
+<section>
+    <h2>复杂度分析维度</h2>
+    <ul>
+        <li>最好情况复杂度</li>
+        <li>最坏情况复杂度</li>
+        <li>平均情况复杂度</li>
+    </ul>
+</section>
+<section>
+    <h2>复杂度分析维度</h2>
+    <ul>
+        <li>最好情况复杂度</li>
+        <li>最坏情况复杂度</li>
+        <li>平均情况复杂度</li>
+    </ul>
+</section>
+<section>
+    <h2>不同数据结构复杂度分析</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>数据结构</th>
+                <th>add</th>
+                 <th>remove</th>
+                <th>get</th>
+                <th>set</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>动态数组</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+                <td>O(1)</td>
+                <td>O(1)</td>
+            </tr>
+            <tr>
+                <td>单项链表</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+                <td>O(n)</td>
+            </tr>
+        </toody>
+    </teble>
+</section>
