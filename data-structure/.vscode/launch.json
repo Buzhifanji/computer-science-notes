@@ -1,0 +1,42 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ArrayListTest<data-strusture>",
+            "request": "launch",
+            "mainClass": "arrayList.ArrayListTest",
+            "projectName": "data-strusture"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Complexity<data-strusture>",
+            "request": "launch",
+            "mainClass": "com.demo.Complexity",
+            "projectName": "data-strusture"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<data-strusture>",
+            "request": "launch",
+            "mainClass": "com.demo.Main",
+            "projectName": "data-strusture"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-SingleNodeListTest<data-strusture>",
+            "request": "launch",
+            "mainClass": "nodeList.SingleNodeListTest",
+            "projectName": "data-strusture"
+        }
+    ]
+}

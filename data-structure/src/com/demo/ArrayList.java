@@ -126,6 +126,7 @@ public class ArrayList<E> extends AbstractList<E> {
 	 * 保证要有capacity的容量
 	 * @param capacity
 	 */
+	@SuppressWarnings("unchecked")
 	private void ensureCapacity(int capacity) {
 		int oldCapacity = elements.length;
 		if(oldCapacity >= capacity) return;
