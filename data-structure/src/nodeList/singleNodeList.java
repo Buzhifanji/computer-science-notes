@@ -5,8 +5,8 @@ public class SingleNodeList<E> {
     private int size = 0;   // 元素的数量
     private Node<E> first;
     static final int ELEMENT_NOT_FOUND = -1;
-
-    private static class Node<E> {
+    
+    private class Node<E> {
         E element;
         Node<E> next;
         public Node(E element, Node<E> next) {
@@ -14,6 +14,7 @@ public class SingleNodeList<E> {
             this.next = next;
         }
     }
+
     // 元素的数量
     public int size() {
         return size;
@@ -98,7 +99,7 @@ public class SingleNodeList<E> {
     }
 
     public Node<E> reverListByFor() {
-        return reverListByRecursion(first);
+        return reverListByFor(first);
     }
 
     // 1, 2, 3, 4, null,
@@ -113,7 +114,7 @@ public class SingleNodeList<E> {
         return newHead; //新链表头永远指向的是原链表的链尾
     }
 
-    // 返回链表——非递归
+    // 反转链接——非递归
     private Node<E> reverListByFor(Node<E> head) {
         if(head == null || head.next == null) {
             return head;

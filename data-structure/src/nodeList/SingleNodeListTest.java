@@ -5,6 +5,7 @@ public class SingleNodeListTest {
     public static void main(String[] args) {
         test();
         testReverListRecursion();
+        testReverListFor();
     }
 
     public static void test() {
@@ -28,7 +29,17 @@ public class SingleNodeListTest {
         node.add(4);
         node.add(5);
         node.add(6);
-        SingleNodeList<Integer> newNode = node.reverListRecursion();
-        System.out.print(newNode);
+        node.reverListRecursion();
+    }
+
+    public static void testReverListFor() {
+        SingleNodeList<Integer> node = new SingleNodeList<Integer>();
+        node.add(10);
+        node.add(20);
+        node.add(30);
+        node.add(40);
+        node.add(50);
+        node.add(60);
+        node.reverListByFor();
     }
 }
