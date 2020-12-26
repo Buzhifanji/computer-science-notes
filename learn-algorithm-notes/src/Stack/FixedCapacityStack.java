@@ -3,12 +3,12 @@ package Stack;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
-// 一种表示定容字符串栈的抽象数据类型
-public class FixedCapacityStackOfStrings {
-    private String[] a;
+// 一种表示泛型定容栈的抽象数据类型
+public class FixedCapacityStack<Item> {
+    private Item[] a;
     private int N;
-    public FixedCapacityStackOfStrings(int cap) {
-        a = new String[cap];
+    public FixedCapacityStack(int cap) {
+        a = (Item[]) new Object[cap];
     }
     public boolean isEmpty() {
         return N == 0;
@@ -16,10 +16,10 @@ public class FixedCapacityStackOfStrings {
     public int size() {
         return N;
     }
-    public void push(String item) {
+    public void push(Item item) {
         a[N++] = item;
     }
-    public String pop() {
+    public Item pop() {
         return a[--N];
     }
     // 测试用例
